@@ -39,8 +39,9 @@ public class ShopRestController {
     }
 
     @RequestMapping(value = "api/order", method = RequestMethod.POST)
-    public int createOrder(@RequestBody Object customerID) {return shopService.createOrder(customerID);}
-
+    public int createOrder(@RequestBody Object customerID) {
+        return shopService.createOrder(customerID);
+    }
 
 
 }
