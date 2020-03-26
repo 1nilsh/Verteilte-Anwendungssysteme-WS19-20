@@ -1,7 +1,7 @@
-package bz.nils.dev.va19.article.api;
+package bz.nils.dev.va19.article.connector;
 
-import bz.nils.dev.va19.article.model.Article;
-import bz.nils.dev.va19.article.service.ArticleService;
+import bz.nils.dev.va19.article.component.structure.Article;
+import bz.nils.dev.va19.article.component.behaviour.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,11 +9,11 @@ import java.util.List;
 
 @RequestMapping("api/article")
 @RestController
-public class ArticleRestController {
+public class ArticleRestConnectorProvider {
     private final ArticleService articleService;
 
     @Autowired
-    public ArticleRestController(ArticleService articleService) {
+    public ArticleRestConnectorProvider(ArticleService articleService) {
         this.articleService = articleService;
     }
 

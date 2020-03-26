@@ -1,31 +1,22 @@
-package bz.nils.dev.va19.article.model;
+package bz.nils.dev.va19.article.component.structure;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-import java.util.UUID;
+@Entity
+public class ArticleEntity {
 
-public class Article {
-    @JsonProperty("uuid")
-    private UUID uuid;
-
-    @JsonProperty("name")
+    @Id
+    private String uuid;
     private String name;
-
-    @JsonProperty("manufacturer")
     private String manufacturer;
-
-    @JsonProperty("price")
     private float price;
 
-    public Article() {
-        this.uuid = UUID.randomUUID();
-    }
-
-    public UUID getUuid() {
+    public String getUuid() {
         return uuid;
     }
 
-    public void setUuid(UUID uuid) {
+    public void setUuid(String uuid) {
         this.uuid = uuid;
     }
 
