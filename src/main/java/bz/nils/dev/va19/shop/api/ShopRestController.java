@@ -24,9 +24,13 @@ public class ShopRestController {
     }
 
     @RequestMapping(value = "api/article", method = RequestMethod.POST)
-    public void createNewArticle(@RequestBody Object article) {shopService.createNewArticle(article);}
+    public void createNewArticle(@RequestBody Object article) {
+        shopService.createNewArticle(article);
+    }
 
     @RequestMapping(value = "api/article", method = RequestMethod.GET)
-    public List<Object> readArticleList() {return shopService.readArticleList();}
+    public List<Object> readArticleList() {
+        return shopService.readArticleList();
+    }
 
 }

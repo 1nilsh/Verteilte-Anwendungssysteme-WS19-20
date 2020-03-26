@@ -13,7 +13,7 @@ public class ShopService {
         return true;
     }
 
-    public boolean createNewArticle(Object article){
+    public boolean createNewArticle(Object article) {
         //Placeholder for real logic
         System.out.println("createNewArticle() called!");
         return true;
@@ -22,7 +22,7 @@ public class ShopService {
     public List<Object> readArticleList() {
 
         List<Object> articleList = new ArrayList<Object>(); //Placeholder for real logic
-        System.out.println("ReadArticleList() called!" );
-        return  articleList;
+        System.out.println("ReadArticleList() called!");
+        return articleList;
     }
 }
