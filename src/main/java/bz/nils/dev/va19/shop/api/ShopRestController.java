@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 public class ShopRestController {
@@ -25,7 +24,7 @@ public class ShopRestController {
     }
 
     @RequestMapping(value = "api/customer", method = RequestMethod.GET)
-    public Map<Integer, Object> readCustomers(){
+    public List<Object> readCustomers() {
         return shopService.readCustomers();
     }
 

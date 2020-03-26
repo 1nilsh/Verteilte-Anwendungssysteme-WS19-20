@@ -1,12 +1,9 @@
 package bz.nils.dev.va19.shop.service;
 
-import org.apache.commons.collections.map.HashedMap;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class ShopService {
@@ -38,9 +35,9 @@ public class ShopService {
         return orderID;
     }
 
-    public Map<Integer, Object> readCustomers() {
+    public List<Object> readCustomers() {
 
-        Map<Integer, Object> customers = new HashMap<Integer, Object>(); //placeholder for real logic
+        List<Object> customers = new ArrayList<Object>(); //placeholder for real logic
         System.out.println("readCustomers() called!");
         return customers;
     }
