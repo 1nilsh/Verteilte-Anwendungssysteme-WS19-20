@@ -1,7 +1,7 @@
 package bz.nils.dev.va19.article.component.behaviour;
 
-import bz.nils.dev.va19.article.connector.ArticleEntityRepository;
-import bz.nils.dev.va19.article.component.structure.ArticleEntity;
+import bz.nils.dev.va19.article.connector.repository.ArticleEntityRepository;
+import bz.nils.dev.va19.article.connector.entity.ArticleEntity;
 import bz.nils.dev.va19.article.component.structure.Article;
 import org.dozer.DozerBeanMapperSingletonWrapper;
 import org.dozer.Mapper;
