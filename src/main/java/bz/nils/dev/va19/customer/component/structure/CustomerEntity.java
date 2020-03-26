@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public class CustomerEntity {
 
-    @Id
+   // @Id
     UUID uuid;
     String name;
     String adress;

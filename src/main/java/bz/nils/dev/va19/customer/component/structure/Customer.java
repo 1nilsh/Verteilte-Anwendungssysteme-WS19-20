@@ -7,16 +7,16 @@ import java.util.UUID;
 
 public class Customer {
 
-    @JsonProperty("uuid")
+ //   @JsonProperty("uuid")
     private UUID uuid;
 
-    @JsonProperty("name")
+   // @JsonProperty("name")
     private String name;
 
-    @JsonProperty("address")
+   // @JsonProperty("address")
     private String adress;
 
-    @JsonProperty("cart")
+   // @JsonProperty("cart")
     private Cart cart;
 
     public UUID getUuid() {
