@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class ShopRestController {
@@ -23,6 +24,11 @@ public class ShopRestController {
         shopService.createNewCustomer(customer);
     }
 
+    @RequestMapping(value = "api/customer", method = RequestMethod.GET)
+    public Map<Integer, Object> readCustomers(){
+        return shopService.readCustomers();
+    }
+
     @RequestMapping(value = "api/article", method = RequestMethod.POST)
     public void createNewArticle(@RequestBody Object article) {
         shopService.createNewArticle(article);
@@ -32,5 +38,10 @@ public class ShopRestController {
     public List<Object> readArticleList() {
         return shopService.readArticleList();
     }
+
+    @RequestMapping(value = "api/order", method = RequestMethod.POST)
+    public int createOrder(@RequestBody Object customerID) {return shopService.createOrder(customerID);}
+
+
 
 }
