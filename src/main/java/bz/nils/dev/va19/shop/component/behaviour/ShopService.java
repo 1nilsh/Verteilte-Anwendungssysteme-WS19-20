@@ -1,4 +1,4 @@
-package bz.nils.dev.va19.shop.service;
+package bz.nils.dev.va19.shop.component.behaviour;
 
 import org.springframework.stereotype.Service;
 

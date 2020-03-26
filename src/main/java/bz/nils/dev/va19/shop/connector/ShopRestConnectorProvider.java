@@ -1,6 +1,6 @@
-package bz.nils.dev.va19.shop.api;
+package bz.nils.dev.va19.shop.connector;
 
-import bz.nils.dev.va19.shop.service.ShopService;
+import bz.nils.dev.va19.shop.component.behaviour.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class ShopRestController {
+public class ShopRestConnectorProvider {
     private final ShopService shopService;
 
     @Autowired
-    public ShopRestController(ShopService shopService) {
+    public ShopRestConnectorProvider(ShopService shopService) {
         this.shopService = shopService;
     }
 
