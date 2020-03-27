@@ -1,4 +1,4 @@
-package bz.nils.dev.va19.customer.component.behaviour;
+package bz.nils.dev.va19.customer;
 
 import org.springframework.boot.SpringApplication;
 		import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -4,4 +4,9 @@
           xsi:schemaLocation="http://dozer.sourceforge.net
           http://dozer.sourceforge.net/schema/beanmapping.xsd">
 
+    <mapping>
+        <class-a>bz.nils.dev.va19.customer.component.structure.Customer</class-a>
+        <class-b>bz.nils.dev.va19.customer.component.structure.CustomerEntity</class-b>
+    </mapping>
+
 </mappings>

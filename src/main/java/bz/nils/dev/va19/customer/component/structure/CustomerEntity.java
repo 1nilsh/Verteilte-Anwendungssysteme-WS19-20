@@ -1,22 +1,24 @@
 package bz.nils.dev.va19.customer.component.structure;
 
-import org.springframework.data.annotation.Id;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.UUID;
 
+@Entity
 public class CustomerEntity {
 
-   // @Id
-    UUID uuid;
+    @Id
+    String uuid;
     String name;
-    String adress;
-    Cart cart;
+    String address;
 
-    public UUID getUuid() {
+
+    public String getUuid() {
         return uuid;
     }
 
-    public void setUuid(UUID uuid) {
+    public void setUuid(String uuid) {
         this.uuid = uuid;
     }
 
@@ -28,19 +30,13 @@ public class CustomerEntity {
         this.name = name;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public Cart getCart() {
-        return cart;
-    }
 
-    public void setCart(Cart cart) {
-        this.cart = cart;
-    }
 }
