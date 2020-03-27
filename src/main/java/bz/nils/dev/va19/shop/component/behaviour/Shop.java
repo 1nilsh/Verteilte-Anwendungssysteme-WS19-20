@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ShopService {
+public class Shop {
     private final ArticleRestConnectorRequester articleRestConnectorRequester;
 
     @Autowired
-    public ShopService(ArticleRestConnectorRequester articleRestConnectorRequester) {
+    public Shop(ArticleRestConnectorRequester articleRestConnectorRequester) {
         this.articleRestConnectorRequester = articleRestConnectorRequester;
     }
 
