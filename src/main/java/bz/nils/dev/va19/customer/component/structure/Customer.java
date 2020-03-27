@@ -6,18 +6,18 @@ import java.util.Map;
 import java.util.UUID;
 
 public class Customer {
-
- //   @JsonProperty("uuid")
+    @JsonProperty("uuid")
     private UUID uuid;
 
-   // @JsonProperty("name")
+    @JsonProperty("name")
     private String name;
 
-   // @JsonProperty("address")
-    private String adress;
+    @JsonProperty("address")
+    private String address;
 
-   // @JsonProperty("cart")
-    private Cart cart;
+    public Customer() {
+        this.uuid = UUID.randomUUID();
+    }
 
     public UUID getUuid() {
         return uuid;
@@ -35,19 +35,13 @@ public class Customer {
         this.name = name;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
-    }
-
-    public Cart getCart() {
-        return cart;
-    }
-
-    public void setCart(Cart cart) {
-        this.cart = cart;
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
+
+
