@@ -18,7 +18,7 @@ public class SupplierServiceRestConnectorProvider implements SupplierShopService
     }
 
     @Override
-    @RequestMapping(value = "supplierservice/article/new", method = RequestMethod.POST)
+    @RequestMapping(value = "shop/supplier/article/new", method = RequestMethod.POST)
     public void addArticleFromSupplier(@RequestBody Object article) {
         shop.createNewArticle(article);
     }

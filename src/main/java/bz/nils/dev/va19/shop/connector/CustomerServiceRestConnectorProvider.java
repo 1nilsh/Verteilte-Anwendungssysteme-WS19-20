@@ -20,20 +20,20 @@ public class CustomerServiceRestConnectorProvider implements CustomerShopService
     }
 
     @Override
-    @RequestMapping(value = "customerservice/articles", method = RequestMethod.GET)
+    @RequestMapping(value = "shop/customer/articles", method = RequestMethod.GET)
     public List<Object> listArticles() {
         return shop.readArticleList();
     }
 
     @Override
-    @RequestMapping(value = "customerservice/new", method = RequestMethod.POST)
+    @RequestMapping(value = "shop/customer/new", method = RequestMethod.POST)
     public void createNewCustomer(@RequestBody Object customer) {
         shop.createNewCustomer(customer);
 
     }
 
     @Override
-    @RequestMapping(value = "customerservice/checkout", method = RequestMethod.POST)
+    @RequestMapping(value = "shop/customer/checkout", method = RequestMethod.POST)
     public int checkoutCart(@RequestBody Object customerID) {
         return shop.createOrder(customerID);
     }
