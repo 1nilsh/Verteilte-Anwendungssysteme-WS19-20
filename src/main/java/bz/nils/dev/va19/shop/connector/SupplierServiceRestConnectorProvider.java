@@ -1,6 +1,5 @@
 package bz.nils.dev.va19.shop.connector;
 
-import bz.nils.dev.va19.shop.component.behaviour.Shop;
 import bz.nils.dev.va19.shop.component.behaviour.SupplierShopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,17 +8,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class SupplierServiceRestConnectorProvider implements SupplierShopService {
-    private final Shop shop;
+public class SupplierServiceRestConnectorProvider {
+    private final SupplierShopService shop;
 
     @Autowired
-    public SupplierServiceRestConnectorProvider(Shop shop) {
+    public SupplierServiceRestConnectorProvider(SupplierShopService shop) {
         this.shop = shop;
     }
 
-    @Override
-    @RequestMapping(value = "shop/supplier/article/new", method = RequestMethod.POST)
+    @RequestMapping(value = "api/supplier/article/new", method = RequestMethod.POST)
     public void addArticleFromSupplier(@RequestBody Object article) {
-        shop.createNewArticle(article);
+        shop.addArticleFromSupplier(article);
     }
 }
