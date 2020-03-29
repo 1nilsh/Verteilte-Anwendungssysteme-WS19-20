@@ -6,7 +6,7 @@
 
     <mapping>
         <class-a>bz.nils.dev.va19.order.component.structure.Order</class-a>
-        <class-b>bz.nils.dev.va19.order.component.structure.OrderEntity</class-b>
+        <class-b>bz.nils.dev.va19.order.connector.entity.OrderEntity</class-b>
     </mapping>
 
 </mappings>

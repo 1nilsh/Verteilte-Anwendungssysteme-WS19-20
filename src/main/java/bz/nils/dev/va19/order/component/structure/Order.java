@@ -8,27 +8,11 @@ public class Order {
     @JsonProperty("uuid")
     private UUID uuid;
 
-    @JsonProperty("header")
-    private String header;
+    @JsonProperty("orderingCustomerId")
+    private String orderingCustomerId;
 
-    @JsonProperty("body")
-    private String body;
-
-    @JsonProperty("footer")
-    private String footer;
-
-    public Order(){this.uuid = UUID.randomUUID();};
-
-    public String getHeader() {
-        return header;
-    }
-
-    public void setHeader(String header) {
-        this.header = header;
-    }
-
-    public String getBody() {
-        return body;
+    public Order(UUID uuid) {
+        this.uuid = UUID.randomUUID();
     }
 
     public UUID getUuid() {
@@ -39,17 +23,11 @@ public class Order {
         this.uuid = uuid;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public String getOrderingCustomerId() {
+        return orderingCustomerId;
     }
 
-    public String getFooter() {
-        return footer;
+    public void setOrderingCustomerId(String orderingCustomerId) {
+        this.orderingCustomerId = orderingCustomerId;
     }
-
-    public void setFooter(String footer) {
-        this.footer = footer;
-    }
-
-
 }

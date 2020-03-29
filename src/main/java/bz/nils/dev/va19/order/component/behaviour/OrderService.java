@@ -1,8 +1,8 @@
 package bz.nils.dev.va19.order.component.behaviour;
 
 import bz.nils.dev.va19.order.component.structure.Order;
-import bz.nils.dev.va19.order.component.structure.OrderEntity;
-import bz.nils.dev.va19.order.connector.OrderEntityRepository;
+import bz.nils.dev.va19.order.connector.entity.OrderEntity;
+import bz.nils.dev.va19.order.connector.repository.OrderEntityRepository;
 import org.dozer.DozerBeanMapperSingletonWrapper;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
