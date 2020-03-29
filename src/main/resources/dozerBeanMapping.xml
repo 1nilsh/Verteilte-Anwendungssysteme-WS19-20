@@ -9,4 +9,9 @@
         <class-b>bz.nils.dev.va19.order.connector.entity.OrderEntity</class-b>
     </mapping>
 
+    <mapping>
+        <class-a>bz.nils.dev.va19.order.component.structure.OrderItem</class-a>
+        <class-b>bz.nils.dev.va19.order.connector.entity.OrderItemEntity</class-b>
+    </mapping>
+
 </mappings>

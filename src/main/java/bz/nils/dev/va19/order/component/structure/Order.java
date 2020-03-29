@@ -11,7 +11,7 @@ public class Order {
     @JsonProperty("orderingCustomerId")
     private String orderingCustomerId;
 
-    public Order(UUID uuid) {
+    public Order() {
         this.uuid = UUID.randomUUID();
     }
 
