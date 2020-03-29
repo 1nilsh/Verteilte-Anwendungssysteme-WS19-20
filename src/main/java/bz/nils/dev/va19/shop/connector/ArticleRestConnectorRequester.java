@@ -17,7 +17,7 @@ public class ArticleRestConnectorRequester {
                 .client(new OkHttpClient())
                 .encoder(new GsonEncoder())
                 .decoder(new GsonDecoder())
-                .target(ArticleRestConnectorInterface.class, "http://localhost:8080/api/article");
+                .target(ArticleRestConnectorInterface.class, "http://localhost:8090/article-microservice/api/article");
     }
 
     public List<Object> readArticleList() {
