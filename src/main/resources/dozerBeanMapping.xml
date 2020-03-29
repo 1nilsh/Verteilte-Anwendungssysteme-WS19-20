@@ -5,8 +5,8 @@
           http://dozer.sourceforge.net/schema/beanmapping.xsd">
 
     <mapping>
-    <class-a>bz.nils.dev.va19.article.component.structure.Article</class-a>
-    <class-b>bz.nils.dev.va19.article.component.structure.ArticleEntity</class-b>
-</mapping>
+        <class-a>bz.nils.dev.va19.article.component.structure.Article</class-a>
+        <class-b>bz.nils.dev.va19.article.component.structure.ArticleEntity</class-b>
+    </mapping>
 
 </mappings>

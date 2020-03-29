@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static java.lang.Long.parseLong;
 
 @RequestMapping("api/article")
 @RestController
@@ -30,6 +29,7 @@ public class ArticleRestConnectorProvider {
     public List<Article> getArticleList() {
         return articleService.readArticleList();
     }
+
     public Article readSingleArticle(@RequestBody Long articleId) {
         return articleService.readSingleArticle(articleId);
     }

@@ -21,7 +21,7 @@ public class ArticleService {
         this.dataService = dataService;
     }
 
-    public String createArticle(Article article) throws Exception{
+    public String createArticle(Article article) throws Exception {
         ArticleEntity entity = mapper.map(article, ArticleEntity.class);
 
         try {
