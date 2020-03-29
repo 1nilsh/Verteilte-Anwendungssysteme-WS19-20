@@ -1,11 +1,12 @@
 package bz.nils.dev.va19.order.connector.entity;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@Entity
 public class OrderItemEntity {
     @Id
     private String uuid;
-    private String parentOrderId;
     private String containedArticleId;
     private int articleQuantity;
 
@@ -15,14 +16,6 @@ public class OrderItemEntity {
 
     public void setUuid(String uuid) {
         this.uuid = uuid;
-    }
-
-    public String getParentOrderId() {
-        return parentOrderId;
-    }
-
-    public void setParentOrderId(String parentOrderId) {
-        this.parentOrderId = parentOrderId;
     }
 
     public String getContainedArticleId() {

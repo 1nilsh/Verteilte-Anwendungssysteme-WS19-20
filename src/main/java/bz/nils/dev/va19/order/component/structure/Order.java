@@ -2,6 +2,8 @@ package bz.nils.dev.va19.order.component.structure;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class Order {
@@ -11,16 +13,19 @@ public class Order {
     @JsonProperty("orderingCustomerId")
     private String orderingCustomerId;
 
+    @JsonProperty("orderItems")
+    private List<OrderItem> orderItems;
+
     public Order() {
         this.uuid = UUID.randomUUID();
     }
 
-    public UUID getUuid() {
-        return uuid;
+    public String getUuid() {
+        return uuid.toString();
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
+    public void setUuid(String uuid) {
+        this.uuid = UUID.fromString(uuid);
     }
 
     public String getOrderingCustomerId() {
@@ -29,5 +34,20 @@ public class Order {
 
     public void setOrderingCustomerId(String orderingCustomerId) {
         this.orderingCustomerId = orderingCustomerId;
+    }
+
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
+    }
+
+    public void addOrderItem(OrderItem orderItem) {
+        if (orderItems == null) {
+            orderItems = new ArrayList<OrderItem>();
+        }
+        this.orderItems.add(orderItem);
     }
 }

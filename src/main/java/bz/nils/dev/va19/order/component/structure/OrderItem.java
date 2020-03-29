@@ -8,9 +8,6 @@ public class OrderItem {
     @JsonProperty("uuid")
     private UUID uuid;
 
-    @JsonProperty("parentOrderId")
-    private String parentOrderId;
-
     @JsonProperty("containedArticleId")
     private String containedArticleId;
 
@@ -21,20 +18,12 @@ public class OrderItem {
         this.uuid = UUID.randomUUID();
     }
 
-    public UUID getUuid() {
-        return uuid;
+    public String getUuid() {
+        return uuid.toString();
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getParentOrderId() {
-        return parentOrderId;
-    }
-
-    public void setParentOrderId(String parentOrderId) {
-        this.parentOrderId = parentOrderId;
+    public void setUuid(String uuid) {
+        this.uuid = UUID.fromString(uuid);
     }
 
     public String getContainedArticleId() {
