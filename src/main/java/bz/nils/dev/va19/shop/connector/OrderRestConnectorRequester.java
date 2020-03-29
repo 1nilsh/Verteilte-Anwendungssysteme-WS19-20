@@ -4,9 +4,11 @@ import feign.Feign;
 import feign.gson.GsonDecoder;
 import feign.gson.GsonEncoder;
 import feign.okhttp.OkHttpClient;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class OrderRestConnectorRequester {
     private OrderRestConnectorInterface orderRestConnectorInterface;
 
