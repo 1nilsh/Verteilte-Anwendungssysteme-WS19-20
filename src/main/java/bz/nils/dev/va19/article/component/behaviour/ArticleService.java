@@ -21,14 +21,15 @@ public class ArticleService {
         this.dataService = dataService;
     }
 
-    public boolean createArticle(Article article) {
+    public String createArticle(Article article) throws Exception{
         ArticleEntity entity = mapper.map(article, ArticleEntity.class);
 
         try {
             dataService.saveAndFlush(entity);
-            return true;
+            return entity.getUuid();
         } catch (Exception e) {
-            return false;
+            e.printStackTrace();
+            throw e;
         }
     }
 
@@ -36,5 +37,10 @@ public class ArticleService {
         List<Article> articles = new ArrayList<>();
         mapper.map(dataService.findAll(), articles);
         return articles;
+    }
+
+    public Article readSingleArticle(Long articleId) {
+        Article article = mapper.map(dataService.getOne(articleId), Article.class);
+        return article;
     }
 }

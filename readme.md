@@ -57,12 +57,25 @@ GET /api/article
 ```
 
 ## Add new article
+   
+   ```
+   POST /api/article
+   {
+       "name": "iPhone 8",
+       "manufacturer": "Apple Inc.",
+       "price": "999.00"
+   }
+   ```
+
+## Get single article
 
 ```
-POST /api/article
+GET http://localhost:8080/api/article
+Content-Type: application/json
+
 {
-    "name": "iPhone 8",
-    "manufacturer": "Apple Inc.",
-    "price": "999.00"
+
+  "uuid": "d00eba10-abc7-4621-b637-5110ee90fc83"
+
 }
 ```
