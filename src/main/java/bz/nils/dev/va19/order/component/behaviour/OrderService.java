@@ -1,18 +1,23 @@
 package bz.nils.dev.va19.order.component.behaviour;
 
 import bz.nils.dev.va19.order.component.structure.Order;
-import bz.nils.dev.va19.order.component.structure.OrderEntity;
-import bz.nils.dev.va19.order.connector.OrderEntityRepository;
+import bz.nils.dev.va19.order.component.structure.OrderItem;
+import bz.nils.dev.va19.order.connector.entity.OrderEntity;
+import bz.nils.dev.va19.order.connector.repository.OrderEntityRepository;
 import org.dozer.DozerBeanMapperSingletonWrapper;
 import org.dozer.Mapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class OrderService {
 
-
-        private final OrderEntityRepository dataService;
+    private final OrderEntityRepository dataService;
     Mapper mapper = DozerBeanMapperSingletonWrapper.getInstance();
 
     @Autowired
@@ -20,21 +25,28 @@ public class OrderService {
         this.dataService = dataService;
     }
 
-    public Boolean createOrder(Order order) {
+    public void createOrder(Order order) {
         OrderEntity entity = mapper.map(order, OrderEntity.class);
-        //Todo implement logic
         try {
             dataService.saveAndFlush(entity);
-            return true;
-
         } catch (Exception e) {
-            return false;
+            Logger logger = LoggerFactory.getLogger(this.getClass());
+            logger.error("Cannot persist Order");
+
+            throw e;
         }
-
-
-
-
     }
 
+    public void addItemToOrder(OrderItem orderItem, String orderId) {
+        Order order = mapper.map(dataService.getOne(orderId), Order.class);
+        order.addOrderItem(orderItem);
+        createOrder(order);
+    }
+
+    public List<Order> readOrderList() {
+        List<Order> orders = new ArrayList<>();
+        mapper.map(dataService.findAll(), orders);
+        return orders;
+    }
 
 }

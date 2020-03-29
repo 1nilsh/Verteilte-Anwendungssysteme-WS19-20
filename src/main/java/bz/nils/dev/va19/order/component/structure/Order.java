@@ -2,54 +2,52 @@ package bz.nils.dev.va19.order.component.structure;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class Order {
     @JsonProperty("uuid")
     private UUID uuid;
 
-    @JsonProperty("header")
-    private String header;
+    @JsonProperty("orderingCustomerId")
+    private String orderingCustomerId;
 
-    @JsonProperty("body")
-    private String body;
+    @JsonProperty("orderItems")
+    private List<OrderItem> orderItems;
 
-    @JsonProperty("footer")
-    private String footer;
-
-    public Order(){this.uuid = UUID.randomUUID();};
-
-    public String getHeader() {
-        return header;
+    public Order() {
+        this.uuid = UUID.randomUUID();
     }
 
-    public void setHeader(String header) {
-        this.header = header;
+    public String getUuid() {
+        return uuid.toString();
     }
 
-    public String getBody() {
-        return body;
+    public void setUuid(String uuid) {
+        this.uuid = UUID.fromString(uuid);
     }
 
-    public UUID getUuid() {
-        return uuid;
+    public String getOrderingCustomerId() {
+        return orderingCustomerId;
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
+    public void setOrderingCustomerId(String orderingCustomerId) {
+        this.orderingCustomerId = orderingCustomerId;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
     }
 
-    public String getFooter() {
-        return footer;
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
     }
 
-    public void setFooter(String footer) {
-        this.footer = footer;
+    public void addOrderItem(OrderItem orderItem) {
+        if (orderItems == null) {
+            orderItems = new ArrayList<OrderItem>();
+        }
+        this.orderItems.add(orderItem);
     }
-
-
 }
