@@ -16,15 +16,15 @@ public interface CustomerRestConnectorInterface {
     @Headers("Content-Type: application/json")
     String createCustomer(Object customer);
 
-    @RequestLine("PATCH")
+    @RequestLine("PATCH/{customerID}/{articleID}")
     @Headers("Content-Type: application/json")
-    void updateCart(String customerID, String articleID);
+    void updateCart(@Param("customerID") String customerID, @Param("articleID") String articleID);
 
     @RequestLine("POST/{customerId}")
     @Headers("Content-Type: application/json")
     Object createOrder(@Param("customerId") String customerID);
 
-    @RequestLine("DELETE")
+    @RequestLine("DELETE/{customerID}/{articleID}")
     @Headers("Content-Type: application/json")
-    void deleteArticleInCart(String customerID, String articleID);
+    void deleteArticleInCart(@Param("customerID") String customerID, @Param("articleID") String articleID);
 }

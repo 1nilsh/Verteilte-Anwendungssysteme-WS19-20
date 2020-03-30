@@ -31,7 +31,7 @@ public class CustomerShopServiceRestConnectorProvider {
         return customerShopService.checkoutCart(customerID);
     }
 
-    @RequestMapping(value = "api/customer/cart/add{customerID}/{articleID}", method = RequestMethod.PATCH)
+    @RequestMapping(value = "api/customer/cart/add/{customerID}/{articleID}", method = RequestMethod.PATCH)
     public void addArticleToCart(@PathVariable String customerId, @PathVariable String articleID) {
         customerShopService.addArticleToCart(customerId, articleID);
     }
