@@ -26,9 +26,28 @@ public class CustomerRestConnectorProvider {
     }
 
     @GetMapping
-    public List<Customer> getArticleList() {
+    public List<Customer> getCustomerList() {
         return customerService.readCustomerList();
     }
 
+
+    @PostMapping(value = "/{customerId}/{articleId}")
+    public void updateCart(@PathVariable String customerId, @PathVariable String articleId) {
+
+        this.customerService.updateCart(customerId, articleId);
+
+    }
+
+
+    @DeleteMapping(value = "/{customerId}/{articleId}")
+    public void deleteArticleFromCart(@PathVariable String customerId, @PathVariable String articleId) {
+        this.customerService.deleteArticleInCart(customerId, articleId);
+    }
+
+    @PostMapping(value = "{customerId}")
+    public String createOrder(@PathVariable String customerId){
+       return this.customerService.createOrder(customerId);
+
+    }
 
 }
