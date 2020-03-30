@@ -25,10 +25,11 @@ public class OrderService {
         this.dataService = dataService;
     }
 
-    public void createOrder(Order order) {
+    public String createOrder(Order order) {
         OrderEntity entity = mapper.map(order, OrderEntity.class);
         try {
             dataService.saveAndFlush(entity);
+            return order.getUuid();
         } catch (Exception e) {
             Logger logger = LoggerFactory.getLogger(this.getClass());
             logger.error("Cannot persist Order");

@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -12,6 +13,7 @@ public class OrderEntity {
 
     @Id
     private String uuid;
+    private Date localDate;
     private String orderingCustomerId;
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -23,6 +25,14 @@ public class OrderEntity {
 
     public void setUuid(String uuid) {
         this.uuid = uuid;
+    }
+
+    public Date getLocalDate() {
+        return localDate;
+    }
+
+    public void setLocalDate(Date localDate) {
+        this.localDate = localDate;
     }
 
     public String getOrderingCustomerId() {
