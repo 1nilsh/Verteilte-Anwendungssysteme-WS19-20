@@ -25,6 +25,11 @@ public class OrderRestConnectorProvider {
         this.orderService.createOrder(order);
     }
 
+    @PostMapping(value = "/newOrderForCustomer/{customerId}")
+    public String createEmptyOrderForCustomer(@PathVariable String customerId) {
+        return this.orderService.createEmptyOrderForCustomer(customerId);
+    }
+
     @RequestMapping(value = "/{orderId}", method = POST)
     public void addItemToOrder(@RequestBody OrderItem orderItem, @PathVariable String orderId) {
         this.orderService.addItemToOrder(orderItem, orderId);

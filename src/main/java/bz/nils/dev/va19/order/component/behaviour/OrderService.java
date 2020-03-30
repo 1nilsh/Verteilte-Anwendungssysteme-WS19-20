@@ -49,4 +49,18 @@ public class OrderService {
         return orders;
     }
 
+    public String createEmptyOrderForCustomer(String customerId) {
+        Order order = new Order();
+        order.setOrderingCustomerId(customerId);
+        OrderEntity entity = mapper.map(order, OrderEntity.class);
+        try {
+            dataService.saveAndFlush(entity);
+            return order.getUuid();
+        } catch (Exception e) {
+            Logger logger = LoggerFactory.getLogger(this.getClass());
+            logger.error("Cannot persist Order");
+
+            throw e;
+        }
+    }
 }
