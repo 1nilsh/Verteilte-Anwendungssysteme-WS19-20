@@ -21,10 +21,15 @@ public class CustomerRestConnectorRequester {
     }
 
     public List<Object> readCustomerList() {
-        return this.customerRestConnectorInterface.readCustomerList();
+        return customerRestConnectorInterface.readCustomerList();
     }
 
     public Object createCustomer(Object customer) {
-        return this.customerRestConnectorInterface.createCustomer(customer);
+        return customerRestConnectorInterface.createCustomer(customer);
+    }
+
+
+    public void updateCart(Object customerID, Object articleID) {
+        customerRestConnectorInterface.updateCart(customerID, articleID);
     }
 }

@@ -15,5 +15,7 @@ public interface CustomerRestConnectorInterface {
     @Headers("Content-Type: application/json")
     Object createCustomer(Object customer);
 
-
+    @RequestLine("PATCH")
+    @Headers("Content-Type: application/json")
+    void updateCart(Object customerID, Object articleID);
 }

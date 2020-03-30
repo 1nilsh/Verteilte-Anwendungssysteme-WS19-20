@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class CustomerServiceRestConnectorProvider {
+public class CustomerShopServiceRestConnectorProvider {
     private final CustomerShopService customerShopService;
 
     @Autowired
-    public CustomerServiceRestConnectorProvider(CustomerShopService customerShopService) {
+    public CustomerShopServiceRestConnectorProvider(CustomerShopService customerShopService) {
         this.customerShopService = customerShopService;
     }
 
@@ -24,13 +24,19 @@ public class CustomerServiceRestConnectorProvider {
     }
 
     @RequestMapping(value = "api/customer/new", method = RequestMethod.POST)
-    public void createNewCustomer(@RequestBody Object customer) {
-        customerShopService.createNewCustomer(customer);
+    public Object createNewCustomer(@RequestBody Object customer) {
+        return customerShopService.createNewCustomer(customer);
 
     }
 
-    @RequestMapping(value = "api/customer/checkout", method = RequestMethod.POST)
+    @RequestMapping(value = "api/customer/cart/checkout", method = RequestMethod.POST)
     public int checkoutCart(@RequestBody Object customerID) {
         return customerShopService.checkoutCart(customerID);
     }
+
+    @RequestMapping(value = "api/customer/cart/add")
+    public void addArticleToCart(Object customerId, Object articleID) {
+        customerShopService.addArticleToCart(customerId, articleID);
+    }
+
 }
