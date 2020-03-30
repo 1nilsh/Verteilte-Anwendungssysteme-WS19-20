@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class SupplierServiceRestConnectorProvider {
+public class SupplierShopServiceRestConnectorProvider {
     private final SupplierShopService shop;
 
     @Autowired
-    public SupplierServiceRestConnectorProvider(SupplierShopService shop) {
+    public SupplierShopServiceRestConnectorProvider(SupplierShopService shop) {
         this.shop = shop;
     }
 
     @RequestMapping(value = "api/supplier/article/new", method = RequestMethod.POST)
-    public void addArticleFromSupplier(@RequestBody Object article) {
-        shop.addArticleFromSupplier(article);
+    public String addArticleFromSupplier(@RequestBody Object article) {
+        return shop.addArticleFromSupplier(article);
     }
 }
