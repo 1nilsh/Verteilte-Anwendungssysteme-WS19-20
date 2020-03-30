@@ -1,4 +1,4 @@
-package bz.nils.dev.va19.article.component.structure;
+package bz.nils.dev.va19.article.connector.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

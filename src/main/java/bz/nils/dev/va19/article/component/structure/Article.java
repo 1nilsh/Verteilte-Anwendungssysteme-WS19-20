@@ -21,8 +21,8 @@ public class Article {
         this.uuid = UUID.randomUUID();
     }
 
-    public UUID getUuid() {
-        return uuid;
+    public String getUuid() {
+        return uuid.toString();
     }
 
     public void setUuid(UUID uuid) {

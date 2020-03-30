@@ -9,6 +9,29 @@ This microservice manages the articles in our shop
 - Configure a MySQL database connection in `application.properties`
 
 
+## MySql
+MySQL muss laufen. Es muss eine Tabelle `shop` geben und einen Nutzer `shopmysql` mit dem Passwort `shopmysql`
+
+Dieser Datenbankserver lässt sich mit MySql mit folgendem Befehl starten:
+
+```bash
+docker run -p 3306:3306 --name mysql-standalone -e MYSQL_ROOT_PASSWORD=toor -e MYSQL_DATABASE=shop -e MYSQL_USER=shopmysql -e MYSQL_PASSWORD=shopmysql -d mysql:8
+```
+
+zum stoppen des Containers:
+
+```bash
+docker stop mysql-standalone
+```
+
+zum erneuten Starten, wenn der Container schon mal gelaufen ist:
+
+```bash
+docker start mysql-standalone
+```
+
+
+##Docker
 Es wird [Docker](https://www.docker.com/) benötigt.
 
 Die [Git-Bash](https://git-scm.com/) ist extrem hilfreich.
@@ -61,12 +84,19 @@ GET /api/article
 ```
 
 ## Add new article
+   
+   ```
+   POST /api/article
+   {
+       "name": "iPhone 8",
+       "manufacturer": "Apple Inc.",
+       "price": "999.00"
+   }
+   ```
+
+## Get single article
 
 ```
-POST /api/article
-{
-    "name": "iPhone 8",
-    "manufacturer": "Apple Inc.",
-    "price": "999.00"
-}
+GET http://localhost:8080/api/article/d00eba10-abc7-4621-b637-5110ee90fc83      <- specific articleId
+
 ```
