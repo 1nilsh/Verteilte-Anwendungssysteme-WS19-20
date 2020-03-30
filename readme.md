@@ -70,12 +70,6 @@ GET /api/article
 ## Get single article
 
 ```
-GET http://localhost:8080/api/article
-Content-Type: application/json
+GET http://localhost:8080/api/article/d00eba10-abc7-4621-b637-5110ee90fc83      <- specific articleId
 
-{
-
-  "uuid": "d00eba10-abc7-4621-b637-5110ee90fc83"
-
-}
 ```
