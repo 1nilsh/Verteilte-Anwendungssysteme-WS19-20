@@ -6,7 +6,7 @@
 
     <mapping>
         <class-a>bz.nils.dev.va19.customer.component.structure.Customer</class-a>
-        <class-b>bz.nils.dev.va19.customer.component.structure.CustomerEntity</class-b>
+        <class-b>bz.nils.dev.va19.customer.connector.entity.CustomerEntity</class-b>
     </mapping>
 
 </mappings>

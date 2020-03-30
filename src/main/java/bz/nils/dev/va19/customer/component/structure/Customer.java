@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public class Customer {
     @JsonProperty("uuid")
-    private UUID uuid;
+    private String uuid;
 
     @JsonProperty("name")
     private String name;
@@ -15,15 +15,19 @@ public class Customer {
     @JsonProperty("address")
     private String address;
 
+    @JsonProperty("cart")
+    private Cart cart;
+
     public Customer() {
-        this.uuid = UUID.randomUUID();
+        this.uuid = UUID.randomUUID().toString();
+        this.cart = new Cart();
     }
 
-    public UUID getUuid() {
+    public String getUuid() {
         return uuid;
     }
 
-    public void setUuid(UUID uuid) {
+    public void setUuid(String uuid) {
         this.uuid = uuid;
     }
 
@@ -41,6 +45,14 @@ public class Customer {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public void setCart(Cart cart){
+        this.cart = cart;
+    }
+
+    public Cart getCart(){
+        return this.cart;
     }
 }
 
