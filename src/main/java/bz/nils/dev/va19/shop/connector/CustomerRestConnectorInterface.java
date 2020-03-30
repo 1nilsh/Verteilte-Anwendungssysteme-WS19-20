@@ -22,7 +22,7 @@ public interface CustomerRestConnectorInterface {
 
     @RequestLine("POST/{customerId}")
     @Headers("Content-Type: application/json")
-    Object createOrder(@Param("customerId") String customerID);
+    String createOrder(@Param("customerId") String customerID);
 
     @RequestLine("DELETE/{customerID}/{articleID}")
     @Headers("Content-Type: application/json")

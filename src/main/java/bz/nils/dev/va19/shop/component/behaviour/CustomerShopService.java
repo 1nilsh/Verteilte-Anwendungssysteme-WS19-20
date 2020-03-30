@@ -28,16 +28,13 @@ public class CustomerShopService {
 
     public String createNewCustomer(Object customer) {
         String customerID = customerRestConnectorRequester.createCustomer(customer);
-        System.out.println("createNewCustomer() called!");
         return customerID;
 
     }
 
 
-    public Object checkoutCart(String customerID) {
-        Object Order = customerRestConnectorRequester.createOrder(customerID);
-        System.out.println("createOrder() called!");
-        return 0;
+    public String checkoutCart(String customerID) {
+        return customerRestConnectorRequester.createOrder(customerID);
     }
 
     public void addArticleToCart(String customerID, String articleID) {
