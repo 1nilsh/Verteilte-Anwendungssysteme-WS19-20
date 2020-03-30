@@ -18,11 +18,13 @@ public interface CustomerRestConnectorInterface {
 
     @RequestLine("PATCH")
     @Headers("Content-Type: application/json")
-    void updateCart(Object customerID, Object articleID);
+    void updateCart(String customerID, String articleID);
 
     @RequestLine("POST/{customerId}")
-    Object createOrder(@Param("customerId") Object customerID);
+    @Headers("Content-Type: application/json")
+    Object createOrder(@Param("customerId") String customerID);
 
     @RequestLine("DELETE")
-    void deleteArticleInCart(Object customerID, Object articleID);
+    @Headers("Content-Type: application/json")
+    void deleteArticleInCart(String customerID, String articleID);
 }

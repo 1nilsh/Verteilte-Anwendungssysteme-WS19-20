@@ -29,15 +29,15 @@ public class CustomerRestConnectorRequester {
     }
 
 
-    public void updateCart(Object customerID, Object articleID) {
+    public void updateCart(String customerID, String articleID) {
         customerRestConnectorInterface.updateCart(customerID, articleID);
     }
 
-    public Object createOrder(Object customerID) {
+    public Object createOrder(String customerID) {
         return customerRestConnectorInterface.createOrder(customerID);
     }
 
-    public void deleteArticleInCart(Object customerID, Object articleID) {
+    public void deleteArticleInCart(String customerID, String articleID) {
         customerRestConnectorInterface.deleteArticleInCart(customerID, articleID);
     }
 }

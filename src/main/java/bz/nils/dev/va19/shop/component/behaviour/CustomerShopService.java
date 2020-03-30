@@ -34,17 +34,17 @@ public class CustomerShopService {
     }
 
 
-    public Object checkoutCart(Object customerID) {
+    public Object checkoutCart(String customerID) {
         Object Order = customerRestConnectorRequester.createOrder(customerID);
         System.out.println("createOrder() called!");
         return 0;
     }
 
-    public void addArticleToCart(Object customerID, Object articleID) {
+    public void addArticleToCart(String customerID, String articleID) {
         customerRestConnectorRequester.updateCart(customerID, articleID);
     }
 
-    public void removeArticleFromCart(Object customerID, Object articleID) {
+    public void removeArticleFromCart(String customerID, String articleID) {
         customerRestConnectorRequester.deleteArticleInCart(customerID, articleID);
     }
 

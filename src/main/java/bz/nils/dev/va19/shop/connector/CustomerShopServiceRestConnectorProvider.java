@@ -27,22 +27,22 @@ public class CustomerShopServiceRestConnectorProvider {
     }
 
     @RequestMapping(value = "api/customer/cart/checkout", method = RequestMethod.POST)
-    public Object checkoutCart(@RequestBody Object customerID) {
+    public Object checkoutCart(@RequestBody String customerID) {
         return customerShopService.checkoutCart(customerID);
     }
 
-    @RequestMapping(value = "api/customer/cart/add", method = RequestMethod.PATCH)
-    public void addArticleToCart(Object customerId, Object articleID) {
+    @RequestMapping(value = "api/customer/cart/add{customerID}/{articleID}", method = RequestMethod.PATCH)
+    public void addArticleToCart(@PathVariable String customerId, @PathVariable String articleID) {
         customerShopService.addArticleToCart(customerId, articleID);
     }
 
-    @RequestMapping(value = "api/customer/cart/remove", method = RequestMethod.DELETE)
-    public void removeArticleFromCart(Object customerID, Object articleID) {
+    @RequestMapping(value = "api/customer/cart/remove/{customerID}/{articleID}", method = RequestMethod.DELETE)
+    public void removeArticleFromCart(@PathVariable String customerID, @PathVariable String articleID) {
         customerShopService.removeArticleFromCart(customerID, articleID);
     }
 
     @RequestMapping(value = "api/customer/article/{articleId}", method = RequestMethod.GET)
-    public Object searchArticle(@PathVariable Object articleID) {
+    public Object searchArticle(@PathVariable String articleID) {
         return customerShopService.searchArticle(articleID);
     }
 
