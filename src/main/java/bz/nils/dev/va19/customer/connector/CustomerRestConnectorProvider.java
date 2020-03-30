@@ -44,4 +44,10 @@ public class CustomerRestConnectorProvider {
         this.customerService.deleteArticleinCart(customerId, articleId);
     }
 
+    @PostMapping(value = "{customerId}")
+    public String createOrder(@PathVariable String customerId){
+       return this.customerService.createOrder(customerId);
+
+    }
+
 }

@@ -7,12 +7,12 @@ import java.util.UUID;
 public class CartItem {
     @JsonProperty("cartItemId")
     private UUID cartItemId;
-    @JsonProperty("quantity")
-    private int quantity;
-    @JsonProperty("articleId")
-    private String articleId;
+    @JsonProperty("articleQuantity")
+    private int articleQuantity;
+    @JsonProperty("containedArticleId")
+    private String containedArticleId;
 
-    public CartItem(String articleId, int quantity) {
+    public CartItem(String containedArticleId, int quantity) {
         this.cartItemId = UUID.randomUUID();
     }
 
@@ -25,18 +25,18 @@ public class CartItem {
     }
 
     public int getQuantity() {
-        return quantity;
+        return articleQuantity;
     }
 
     public void setQuantity(int quantity) {
-        this.quantity = quantity;
+        this.articleQuantity = quantity;
     }
 
-    public String getArticleId() {
-        return articleId;
+    public String getContainedArticleId() {
+        return containedArticleId;
     }
 
-    public void setArticleId(String articleId) {
-        this.articleId = articleId;
+    public void setContainedArticleId(String containedArticleId) {
+        this.containedArticleId = containedArticleId;
     }
 }
