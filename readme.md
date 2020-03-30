@@ -25,6 +25,9 @@ zum erneuten Starten, wenn der Container schon mal gelaufen ist:
 docker start mysql-standalone
 ```
 
+## service.config
+In der `service.config` werden die Einstellungen des Containers festgelegt. Hier muss ein Discovery-Server eingetragen
+werden. Außerdem die Konfiguration eines MySQL Servers.
 
 ## Docker Setup
 ```
