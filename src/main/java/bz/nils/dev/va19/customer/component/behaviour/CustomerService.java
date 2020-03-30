@@ -5,8 +5,14 @@ import bz.nils.dev.va19.customer.component.structure.CustomerEntity;
 import bz.nils.dev.va19.customer.connector.CustomerEntityRepository;
 import org.dozer.DozerBeanMapperSingletonWrapper;
 import org.dozer.Mapper;
+import org.hibernate.criterion.Order;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class CustomerService {
@@ -19,18 +25,27 @@ public class CustomerService {
     }
 
 
-    public boolean createCustomer(Customer customer) {
+    public String createCustomer(Customer customer) throws Exception{
         CustomerEntity entity = mapper.map(customer, CustomerEntity.class);
 
 
         try {
-
             dataService.saveAndFlush(entity);
-
-            return true;
+            return entity.getUuid();
         } catch (Exception e) {
-            return false;
+
+            Logger logger = LoggerFactory.getLogger(this.getClass());
+            logger.error("Cannot persist Customer");
+
+            throw e;
         }
 
     }
+
+    public List<Customer> readCustomerList() {
+        List<Customer> customers = new ArrayList<>();
+        mapper.map(dataService.findAll(), customers);
+        return customers;
+    }
+
 }
