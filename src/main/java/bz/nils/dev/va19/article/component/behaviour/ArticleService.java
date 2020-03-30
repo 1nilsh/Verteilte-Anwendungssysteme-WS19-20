@@ -44,8 +44,8 @@ public class ArticleService {
         return articles;
     }
 
-    public Article readSingleArticle(String articleId) {
+    public String readSingleArticle(String articleId) {
         Article article = mapper.map(dataService.getOne(articleId), Article.class);
-        return article;
+        return article.getUuid();
     }
 }

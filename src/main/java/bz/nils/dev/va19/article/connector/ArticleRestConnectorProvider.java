@@ -31,7 +31,7 @@ public class ArticleRestConnectorProvider {
     }
 
     @GetMapping("/{articleId}")
-    public Article readSingleArticle(@PathVariable String articleId) {
+    public String readSingleArticle(@PathVariable String articleId) {
         return articleService.readSingleArticle(articleId);
     }
 }
