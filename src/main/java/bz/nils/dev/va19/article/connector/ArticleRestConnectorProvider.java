@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RequestMapping("api/article")
 @RestController
 public class ArticleRestConnectorProvider {
@@ -18,12 +19,19 @@ public class ArticleRestConnectorProvider {
     }
 
     @PostMapping
-    public void createArticle(@RequestBody Article article) {
+    public String createArticle(@RequestBody Article article) throws Exception {
         articleService.createArticle(article);
+        return article.getUuid().toString();
     }
+
 
     @GetMapping
     public List<Article> getArticleList() {
         return articleService.readArticleList();
+    }
+
+    @GetMapping("/{articleId}")
+    public String readSingleArticle(@PathVariable String articleId) {
+        return articleService.readSingleArticle(articleId);
     }
 }
