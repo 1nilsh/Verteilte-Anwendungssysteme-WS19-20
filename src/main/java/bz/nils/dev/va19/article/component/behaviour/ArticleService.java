@@ -5,6 +5,8 @@ import bz.nils.dev.va19.article.component.structure.ArticleEntity;
 import bz.nils.dev.va19.article.component.structure.Article;
 import org.dozer.DozerBeanMapperSingletonWrapper;
 import org.dozer.Mapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +30,10 @@ public class ArticleService {
             dataService.saveAndFlush(entity);
             return entity.getUuid();
         } catch (Exception e) {
-            e.printStackTrace();
+
+            Logger logger = LoggerFactory.getLogger(this.getClass());
+            logger.error("Cannot persist Order");
+
             throw e;
         }
     }
