@@ -2,15 +2,14 @@ package bz.nils.dev.va19.customer.connector.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.UUID;
 
 @Entity
 public class CartItemEntity {
 
     @Id
     private String cartItemId;
-    private int quantity;
-    private String articleId;
+    private int articleQuantity;
+    private String containedArticleId;
 
     public String getCartItemId() {
         return cartItemId;
@@ -20,19 +19,19 @@ public class CartItemEntity {
         this.cartItemId = cartItemId;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getArticleQuantity() {
+        return articleQuantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setArticleQuantity(int quantity) {
+        this.articleQuantity = quantity;
     }
 
-    public String getArticleId() {
-        return articleId;
+    public String getContainedArticleId() {
+        return containedArticleId;
     }
 
-    public void setArticleId(String articleId) {
-        this.articleId = articleId;
+    public void setContainedArticleId(String articleId) {
+        this.containedArticleId = articleId;
     }
 }

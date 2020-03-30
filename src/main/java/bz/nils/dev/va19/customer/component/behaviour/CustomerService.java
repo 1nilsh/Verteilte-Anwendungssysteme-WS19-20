@@ -1,6 +1,9 @@
 package bz.nils.dev.va19.customer.component.behaviour;
 
+import bz.nils.dev.va19.customer.component.structure.Cart;
+import bz.nils.dev.va19.customer.component.structure.CartItem;
 import bz.nils.dev.va19.customer.component.structure.Customer;
+import bz.nils.dev.va19.customer.connector.OrderRestConnectorRequester;
 import bz.nils.dev.va19.customer.connector.entity.CustomerEntity;
 import bz.nils.dev.va19.customer.connector.repository.CustomerEntityRepository;
 import org.dozer.DozerBeanMapperSingletonWrapper;
@@ -10,7 +13,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.parser.Entity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,10 +20,12 @@ import java.util.List;
 public class CustomerService {
     private final CustomerEntityRepository dataService;
     Mapper mapper = DozerBeanMapperSingletonWrapper.getInstance();
+    private final OrderRestConnectorRequester orderRestConnectorRequester;
 
     @Autowired
-    public CustomerService(CustomerEntityRepository dataService) {
+    public CustomerService(CustomerEntityRepository dataService, OrderRestConnectorRequester orderRestConnectorRequester) {
         this.dataService = dataService;
+        this.orderRestConnectorRequester = orderRestConnectorRequester;
     }
 
 
@@ -64,4 +68,23 @@ public class CustomerService {
         dataService.saveAndFlush(mapper.map(customer, CustomerEntity.class));
     }
 
+    public String createOrder(String customerId) {
+        Customer customer = readSingleCustomer(customerId);
+        Cart cart = customer.getCart();
+        String orderId = orderRestConnectorRequester.createOrder(customerId);
+
+        for ( CartItem item: cart.getCartItems()
+             ) {
+            orderRestConnectorRequester.addItemToOrder(item, orderId);
+        }
+
+        return orderId;
+
+
+    }
+
+    public Customer readSingleCustomer(String customerId) {
+        Customer customer = mapper.map(dataService.getOne(customerId), Customer.class);
+        return customer;
+    }
 }
