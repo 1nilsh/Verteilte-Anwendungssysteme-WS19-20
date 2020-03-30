@@ -21,8 +21,8 @@ public class OrderRestConnectorProvider {
     }
 
     @PostMapping
-    public void createOrder(@RequestBody Order order) {
-        this.orderService.createOrder(order);
+    public String createOrder(@RequestBody Order order) {
+        return this.orderService.createOrder(order);
     }
 
     @PostMapping(value = "/newOrderForCustomer/{customerId}")
