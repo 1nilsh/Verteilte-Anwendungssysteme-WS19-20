@@ -21,10 +21,14 @@ public class ArticleRestConnectorRequester {
     }
 
     public List<Object> readArticleList() {
-        return this.articleRestConnectorInterface.readArticleList();
+        return articleRestConnectorInterface.readArticleList();
     }
 
-    public void createArticle(Object article) {
-        this.articleRestConnectorInterface.createArticle(article);
+    public String createArticle(Object article) {
+        return articleRestConnectorInterface.createArticle(article);
+    }
+
+    public Object readArticle(Object articleID) {
+        return articleRestConnectorInterface.readArticle(articleID);
     }
 }

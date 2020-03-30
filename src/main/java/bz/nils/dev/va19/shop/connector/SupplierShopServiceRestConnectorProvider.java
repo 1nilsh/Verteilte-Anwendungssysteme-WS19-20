@@ -17,7 +17,7 @@ public class SupplierShopServiceRestConnectorProvider {
     }
 
     @RequestMapping(value = "api/supplier/article/new", method = RequestMethod.POST)
-    public void addArticleFromSupplier(@RequestBody Object article) {
-        shop.addArticleFromSupplier(article);
+    public String addArticleFromSupplier(@RequestBody Object article) {
+        return shop.addArticleFromSupplier(article);
     }
 }

@@ -13,8 +13,7 @@ public class SupplierShopService {
         this.articleRestConnectorRequester = articleRestConnectorRequester;
     }
 
-    // TODO: Slotos will als Parameter (Set<Article>)
-    public void addArticleFromSupplier(Object article) {
-        articleRestConnectorRequester.createArticle(article);
+    public String addArticleFromSupplier(Object article) {
+        return articleRestConnectorRequester.createArticle(article);
     }
 }

@@ -24,12 +24,20 @@ public class CustomerRestConnectorRequester {
         return customerRestConnectorInterface.readCustomerList();
     }
 
-    public Object createCustomer(Object customer) {
+    public String createCustomer(Object customer) {
         return customerRestConnectorInterface.createCustomer(customer);
     }
 
 
     public void updateCart(Object customerID, Object articleID) {
         customerRestConnectorInterface.updateCart(customerID, articleID);
+    }
+
+    public Object createOrder(Object customerID) {
+        return customerRestConnectorInterface.createOrder(customerID);
+    }
+
+    public void deleteArticleInCart(Object customerID, Object articleID) {
+        customerRestConnectorInterface.deleteArticleInCart(customerID, articleID);
     }
 }
