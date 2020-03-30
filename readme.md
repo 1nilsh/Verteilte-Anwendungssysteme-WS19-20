@@ -20,6 +20,10 @@ laufen lassen.
 
 In `target/` sollte nun die Datei `article-microservice.jar` liegen.
 
+## service.config
+In der `service.config` werden die Einstellungen des Containers festgelegt. Hier muss ein Discovery-Server eingetragen
+werden. Außerdem die Konfiguration eines MySQL Servers.
+
 ## Docker Container-Image bauen
 
 Im Verzeichnis des discovery-server ein Git-Bash starten, bzw. in das Verzeichnis navigieren.
