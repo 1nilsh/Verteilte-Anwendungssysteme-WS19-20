@@ -39,7 +39,7 @@ public class ArticleService {
         return articles;
     }
 
-    public Article readSingleArticle(Long articleId) {
+    public Article readSingleArticle(String articleId) {
         Article article = mapper.map(dataService.getOne(articleId), Article.class);
         return article;
     }
