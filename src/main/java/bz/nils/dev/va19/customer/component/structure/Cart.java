@@ -48,7 +48,7 @@ public class Cart {
     public void addCartItemtoCart(String articleId, int quantity) {
         CartItem newCartItem = new CartItem();
         newCartItem.setQuantity(quantity);
-        newCartItem.setArticleId(articleId);
+        newCartItem.setContainedArticleId(articleId);
 
         if (cartItems.size() == 0) {
 
@@ -56,7 +56,7 @@ public class Cart {
         } else {
             for (CartItem cartItem : cartItems) {
 
-                if (cartItem.getArticleId().equals(articleId)) {
+                if (cartItem.getContainedArticleId().equals(articleId)) {
                     cartItem.setQuantity(cartItem.getQuantity() + 1);
                 } else {
                     cartItems.add(newCartItem);
@@ -82,9 +82,10 @@ public class Cart {
 
         for (CartItem cartItem : cartItems) {
 
-            if (cartItem.getArticleId().equals(articleId) && cartItem.getQuantity() == 1) {
+            if (cartItem.getContainedArticleId().equals(articleId) && cartItem.getQuantity() == 1) {
                 cartItemToRemove = cartItem;
-            } else if (cartItem.getArticleId().equals(articleId)) {
+            } else if (cartItem.getContainedArticleId().equals(articleId)) {
+            } else if (cartItem.getContainedArticleId().equals(articleId)) {
                 cartItem.setQuantity(cartItem.getQuantity() - 1);
             }
         }

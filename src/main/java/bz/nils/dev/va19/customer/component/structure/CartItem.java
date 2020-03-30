@@ -12,7 +12,7 @@ public class CartItem {
     @JsonProperty("containedArticleId")
     private String containedArticleId;
 
-    public CartItem(String containedArticleId, int quantity) {
+    public CartItem() {
         this.cartItemId = UUID.randomUUID();
     }
 
