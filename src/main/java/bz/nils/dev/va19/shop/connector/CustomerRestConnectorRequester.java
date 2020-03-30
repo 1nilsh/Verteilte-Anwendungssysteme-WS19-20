@@ -33,7 +33,7 @@ public class CustomerRestConnectorRequester {
         customerRestConnectorInterface.updateCart(customerID, articleID);
     }
 
-    public Object createOrder(String customerID) {
+    public String createOrder(String customerID) {
         return customerRestConnectorInterface.createOrder(customerID);
     }
 

@@ -27,7 +27,7 @@ public class CustomerShopServiceRestConnectorProvider {
     }
 
     @RequestMapping(value = "api/customer/cart/checkout", method = RequestMethod.POST)
-    public Object checkoutCart(@RequestBody String customerID) {
+    public String checkoutCart(@RequestBody String customerID) {
         return customerShopService.checkoutCart(customerID);
     }
 
