@@ -32,7 +32,7 @@ public class CustomerRestConnectorProvider {
 
 
     @PostMapping(value = "/{customerId}/{articleId}")
-    void updateCart(@PathVariable String customerId, @PathVariable String articleId) {
+    public void updateCart(@PathVariable String customerId, @PathVariable String articleId) {
 
         this.customerService.updateCart(customerId, articleId);
 
@@ -40,8 +40,8 @@ public class CustomerRestConnectorProvider {
 
 
     @DeleteMapping(value = "/{customerId}/{articleId}")
-    void deleteArticleFromCart(@PathVariable String customerId, @PathVariable String articleId) {
-        this.customerService.deleteArticleinCart(customerId, articleId);
+    public void deleteArticleFromCart(@PathVariable String customerId, @PathVariable String articleId) {
+        this.customerService.deleteArticleInCart(customerId, articleId);
     }
 
 }

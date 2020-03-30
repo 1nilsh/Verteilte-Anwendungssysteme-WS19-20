@@ -6,21 +6,21 @@ import java.util.UUID;
 
 public class CartItem {
     @JsonProperty("cartItemId")
-    private UUID cartItemId;
+    private String cartItemId;
     @JsonProperty("quantity")
     private int quantity;
     @JsonProperty("articleId")
     private String articleId;
 
-    public CartItem(String articleId, int quantity) {
-        this.cartItemId = UUID.randomUUID();
+    public CartItem() {
+        this.cartItemId = UUID.randomUUID().toString();
     }
 
-    public UUID getCartItemId() {
+    public String getCartItemId() {
         return cartItemId;
     }
 
-    public void setCartItemId(UUID cartItemId) {
+    public void setCartItemId(String cartItemId) {
         this.cartItemId = cartItemId;
     }
 

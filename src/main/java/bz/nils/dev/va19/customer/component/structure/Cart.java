@@ -6,14 +6,14 @@ import java.util.*;
 
 public class Cart {
     @JsonProperty("cartId")
-    private UUID cartId;
+    private String cartId;
     @JsonProperty("numberOfCartItems")
     private int numberOfCartItems;
     @JsonProperty("cartItems")
     private List<CartItem> cartItems;
 
     public Cart() {
-        this.cartId = UUID.randomUUID();
+        this.cartId = UUID.randomUUID().toString();
         cartItems = new ArrayList<CartItem>();
     }
 
@@ -24,7 +24,7 @@ public class Cart {
 
 
     public void setCartId(String cartId) {
-        this.cartId = UUID.fromString(cartId);
+        this.cartId = cartId;
     }
 
 
@@ -46,31 +46,51 @@ public class Cart {
 
 
     public void addCartItemtoCart(String articleId, int quantity) {
+        CartItem newCartItem = new CartItem();
+        newCartItem.setQuantity(quantity);
+        newCartItem.setArticleId(articleId);
 
-        /*
-        quantity = 1;
+        if (cartItems.size() == 0) {
 
-        if (!cartItems.containsKey(articleId)) {
-            cartItems.put(articleId, new CartItem(articleId, quantity));
+            cartItems.add(newCartItem);
         } else {
-            cartItems.get(articleId).setQuantity(cartItems.get(articleId).getQuantity() + 1);
+            for (CartItem cartItem : cartItems) {
+
+                if (cartItem.getArticleId().equals(articleId)) {
+                    cartItem.setQuantity(cartItem.getQuantity() + 1);
+                } else {
+                    cartItems.add(newCartItem);
+                }
+
+            }
         }
-        numberOfCartItems++;
 
+        increaseNumberOfCartItems(quantity);
 
-         */
+    }
+
+    public void increaseNumberOfCartItems(int amount) {
+        numberOfCartItems += amount;
+    }
+
+    public void decreaseNumberOfCartItems(int amount) {
+        numberOfCartItems -= amount;
     }
 
     public void deleteCartItemFromCart(String articleId) {
+        CartItem cartItemToRemove = null;
 
-        /*
-        if (cartItems.get(articleId).getQuantity() == 1) {
-            cartItems.remove(articleId);
-        } else {
-            cartItems.get(articleId).setQuantity(cartItems.get(articleId).getQuantity() - 1);
+        for (CartItem cartItem : cartItems) {
+
+            if (cartItem.getArticleId().equals(articleId) && cartItem.getQuantity() == 1) {
+                cartItemToRemove = cartItem;
+            } else if (cartItem.getArticleId().equals(articleId)) {
+                cartItem.setQuantity(cartItem.getQuantity() - 1);
+            }
         }
 
-         */
+        cartItems.remove(cartItemToRemove);
+        decreaseNumberOfCartItems(1);
 
     }
 }

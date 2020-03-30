@@ -57,7 +57,7 @@ public class CustomerService {
     }
 
 
-    public void deleteArticleinCart(String customerId, String articleId) {
+    public void deleteArticleInCart(String customerId, String articleId) {
         Customer customer = mapper.map(dataService.getOne(customerId), Customer.class);
 
         customer.getCart().deleteCartItemFromCart(articleId);
