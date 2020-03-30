@@ -4,7 +4,6 @@ This microservice manages the customers of our shop.
 
 # Configuration / Setup
 
-
 ## MySql
 MySQL muss laufen. Es muss eine Tabelle `shop` geben und einen Nutzer `shopmysql` mit dem Passwort `shopmysql`
 
@@ -26,7 +25,11 @@ zum erneuten Starten, wenn der Container schon mal gelaufen ist:
 docker start mysql-standalone
 ```
 
-##Docker
+## service.config
+In der `service.config` werden die Einstellungen des Containers festgelegt. Hier muss ein Discovery-Server eingetragen
+werden. Außerdem die Konfiguration eines MySQL Servers.
+
+## Docker
 Es wird [Docker](https://www.docker.com/) benötigt.
 
 Die [Git-Bash](https://git-scm.com/) ist extrem hilfreich.
