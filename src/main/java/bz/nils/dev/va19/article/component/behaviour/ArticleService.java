@@ -32,7 +32,7 @@ public class ArticleService {
         } catch (Exception e) {
 
             Logger logger = LoggerFactory.getLogger(this.getClass());
-            logger.error("Cannot persist Order");
+            logger.error("Cannot persist Article");
 
             throw e;
         }
