@@ -2,7 +2,6 @@ package bz.nils.dev.va19.shop.component.behaviour;
 
 import bz.nils.dev.va19.shop.connector.ArticleRestConnectorRequester;
 import bz.nils.dev.va19.shop.connector.CustomerRestConnectorRequester;
-import bz.nils.dev.va19.shop.connector.OrderRestConnectorRequester;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,14 +11,12 @@ import java.util.List;
 public class CustomerShopService {
     private final ArticleRestConnectorRequester articleRestConnectorRequester;
     private final CustomerRestConnectorRequester customerRestConnectorRequester;
-    private final OrderRestConnectorRequester orderRestConnectorRequester;
 
 
     @Autowired
-    public CustomerShopService(ArticleRestConnectorRequester articleRestConnectorRequester, CustomerRestConnectorRequester customerRestConnectorRequester, OrderRestConnectorRequester orderRestConnectorRequester) {
+    public CustomerShopService(ArticleRestConnectorRequester articleRestConnectorRequester, CustomerRestConnectorRequester customerRestConnectorRequester) {
         this.articleRestConnectorRequester = articleRestConnectorRequester;
         this.customerRestConnectorRequester = customerRestConnectorRequester;
-        this.orderRestConnectorRequester = orderRestConnectorRequester;
     }
 
     public List<Object> listArticles() {
@@ -27,8 +24,7 @@ public class CustomerShopService {
     }
 
     public String createNewCustomer(Object customer) {
-        String customerID = customerRestConnectorRequester.createCustomer(customer);
-        return customerID;
+        return customerRestConnectorRequester.createCustomer(customer);
 
     }
 
@@ -46,8 +42,7 @@ public class CustomerShopService {
     }
 
     public Object searchArticle(Object articleID) {
-        Object article = articleRestConnectorRequester.readArticle(articleID);
-        return article;
+        return articleRestConnectorRequester.readArticle(articleID);
     }
 
 }
