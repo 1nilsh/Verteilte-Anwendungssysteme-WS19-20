@@ -35,7 +35,7 @@ public class ArticleRestConnectorProviderTest {
     private List<Article> dummyArticleList;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         mockMvc = MockMvcBuilders.standaloneSetup(articleRestConnectorProvider).build();
 
         dummyArticleId = "a668f13e-770c-4336-be39-1988abec066e";
