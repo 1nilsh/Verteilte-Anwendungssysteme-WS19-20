@@ -1,7 +1,7 @@
 package bz.nils.dev.va19.article.connector;
 
-import bz.nils.dev.va19.article.component.structure.Article;
 import bz.nils.dev.va19.article.component.behaviour.ArticleService;
+import bz.nils.dev.va19.article.component.structure.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,9 +19,8 @@ public class ArticleRestConnectorProvider {
     }
 
     @PostMapping
-    public String createArticle(@RequestBody Article article) throws Exception {
-        articleService.createArticle(article);
-        return article.getUuid().toString();
+    public String createArticle(@RequestBody Article article) {
+        return articleService.createArticle(article);
     }
 
 
@@ -31,7 +30,7 @@ public class ArticleRestConnectorProvider {
     }
 
     @GetMapping("/{articleId}")
-    public String readSingleArticle(@PathVariable String articleId) {
+    public Article readSingleArticle(@PathVariable String articleId) {
         return articleService.readSingleArticle(articleId);
     }
 }
