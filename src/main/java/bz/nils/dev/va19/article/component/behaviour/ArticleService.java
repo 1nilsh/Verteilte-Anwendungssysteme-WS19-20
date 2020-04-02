@@ -1,8 +1,8 @@
 package bz.nils.dev.va19.article.component.behaviour;
 
-import bz.nils.dev.va19.article.connector.repository.ArticleEntityRepository;
-import bz.nils.dev.va19.article.connector.entity.ArticleEntity;
 import bz.nils.dev.va19.article.component.structure.Article;
+import bz.nils.dev.va19.article.connector.entity.ArticleEntity;
+import bz.nils.dev.va19.article.connector.repository.ArticleEntityRepository;
 import org.dozer.DozerBeanMapperSingletonWrapper;
 import org.dozer.Mapper;
 import org.slf4j.Logger;
@@ -23,7 +23,7 @@ public class ArticleService {
         this.dataService = dataService;
     }
 
-    public String createArticle(Article article) throws Exception {
+    public String createArticle(Article article) {
         ArticleEntity entity = mapper.map(article, ArticleEntity.class);
 
         try {
@@ -39,13 +39,14 @@ public class ArticleService {
     }
 
     public List<Article> readArticleList() {
+        List<ArticleEntity> articleEntities = dataService.findAll();
         List<Article> articles = new ArrayList<>();
-        mapper.map(dataService.findAll(), articles);
+
+        articleEntities.forEach(articleEntity -> articles.add(mapper.map(articleEntity, Article.class)));
         return articles;
     }
 
-    public String readSingleArticle(String articleId) {
-        Article article = mapper.map(dataService.getOne(articleId), Article.class);
-        return article.getUuid();
+    public Article readSingleArticle(String articleId) {
+        return mapper.map(dataService.getOne(articleId), Article.class);
     }
 }
